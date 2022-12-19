@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export const WordSearch = () => {
+    const [word, setWord] = useState<string>('')
+    const handleWord = () => {
+        setWord(word)
+    }
   return (
     <View style = {styles.inputContainer}>
         <TextInput 
+        value = {word}
+        onChangeText = {handleWord}
         style = {styles.inputBox} 
-        placeholder="Enter a word"
+        placeholder = "Enter a word"
         />
+        <Pressable>
+            <Text>Search</Text>
+        </Pressable>
     </View>
   )
 }
