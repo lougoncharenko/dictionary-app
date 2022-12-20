@@ -3,18 +3,26 @@ import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export const WordSearch = () => {
     const [word, setWord] = useState<string>('')
-    const handleWord = () => {
-        setWord(word)
+    const handleSearch = () => {
+        alert(word)
+        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        .then((response) => response.json())
+        .then((json) => {
+            
+        });
     }
   return (
     <View style = {styles.inputContainer}>
         <TextInput 
         value = {word}
-        onChangeText = {handleWord}
+        onChangeText = {setWord}
         style = {styles.inputBox} 
         placeholder = "Enter a word"
         />
-        <Pressable style={styles.searchButton}>
+        <Pressable 
+        style={styles.searchButton}
+        onPress={handleSearch}
+        >
             <Text>Search</Text>
         </Pressable>
     </View>
