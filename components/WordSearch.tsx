@@ -14,7 +14,7 @@ export const WordSearch = () => {
         style = {styles.inputBox} 
         placeholder = "Enter a word"
         />
-        <Pressable>
+        <Pressable style={styles.searchButton}>
             <Text>Search</Text>
         </Pressable>
     </View>
@@ -24,6 +24,8 @@ export const WordSearch = () => {
 const styles = StyleSheet.create ({
     inputContainer: {
         padding: 10,
+        display: 'flex',
+        flexDirection: 'row',
     },
     inputBox: {
         height: 40,
@@ -31,4 +33,8 @@ const styles = StyleSheet.create ({
         padding: 10,
         width: 200
     },
+    searchButton: {
+        borderWidth: 1,
+        padding: 10,
+    }
 })
